@@ -1,0 +1,11 @@
+stages:
+  - daily_aws_cost
+
+daily_cost:
+  stage: daily_aws_cost
+  image: python:3.9
+  script:
+    - pip3 install -r requirements.txt
+    - python3 aws-cost.py
+  only:
+    - schedules
